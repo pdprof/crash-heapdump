@@ -19,7 +19,6 @@ docker push $(oc registry info)/$(oc project -q)/${TAG_NAME}:1.0-SNAPSHOT
 
 sed -i s/image-registry.openshift-image-registry.svc:5000/default-route-openshift-image-registry.apps-crc.testing/g kubernetes.yaml
 sed -i s/"\[project-name\]"/$(oc project -q)/g kubernetes.yaml
-sed -i s/"- containerPort: 9080"/"- containerPort: 9080\n      imagePullSecrets:\n      - name: docker-user-secret"/g kubernetes.yaml
 
 oc create secret generic docker-user-secret --from-file=.dockerconfigjson=$HOME/.docker/config.json --type=kubernetes.io/dockerconfigjson
 oc apply -f kubernetes.yaml

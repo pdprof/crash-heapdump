@@ -18,6 +18,9 @@ spec:
         image: image-registry.openshift-image-registry.svc:5000/[project-name]/crash-heapdump:1.0-SNAPSHOT
         ports:
         - containerPort: 9080
+      imagePullSecrets:
+      - name: docker-user-secret
+
 --- 
 apiVersion: v1
 kind: Service

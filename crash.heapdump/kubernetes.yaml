@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: crash-heapdump-container
-        image: image-registry.openshift-image-registry.svc:5000/[project-name]/system:1.0-SNAPSHOT
+        image: image-registry.openshift-image-registry.svc:5000/[project-name]/crash-heapdump:1.0-SNAPSHOT
         ports:
         - containerPort: 9080
 --- 

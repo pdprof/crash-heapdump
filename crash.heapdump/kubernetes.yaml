@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: crash-heapdump-deployment
+  name: [tag-name]-deployment
   labels:
-    app: crash-heapdump
+    app: [tag-name]
 spec:
   selector:
     matchLabels:
-      app: crash-heapdump
+      app: [tag-name]
   template:
     metadata:
       labels:
-        app: crash-heapdump
+        app: [tag-name]
     spec:
       containers:
-      - name: crash-heapdump-container
-        image: image-registry.openshift-image-registry.svc:5000/[project-name]/crash-heapdump:1.0-SNAPSHOT
+      - name: [tag-name]-container
+        image: image-registry.openshift-image-registry.svc:5000/[project-name]/[tag-name]:[build-name]
         ports:
         - containerPort: 9080
       imagePullSecrets:
@@ -25,10 +25,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: crash-heapdump-service
+  name: [tag-name]-service
 spec:
   selector:
-    app: crash-heapdump
+    app: [tag-name]
   ports:
   - protocol: TCP
     port: 9080
@@ -36,8 +36,8 @@ spec:
 apiVersion: v1
 kind: Route
 metadata:
-  name: crash-heapdump-route
+  name: [tag-name]-route
 spec:
   to:
     kind: Service
-    name: crash-heapdump-service
+    name: [tag-name]-service

@@ -1,0 +1,22 @@
+<server description="Sample Liberty server">
+
+  <featureManager>
+      <feature>jakartaee-8.0</feature>
+      <feature>eventLogging-1.0</feature>
+      <feature>requestTiming-1.0</feature>
+  </featureManager>
+  
+  <variable name="default.http.port" defaultValue="9080"/>
+  <variable name="default.https.port" defaultValue="9443"/>
+
+  <httpEndpoint httpPort="${default.http.port}" httpsPort="${default.https.port}"
+      id="defaultHttpEndpoint" host="*" />
+
+  <eventLogging logMode="entryExit" minDuration="1ms"/>
+
+  <requestTiming slowRequestThreshold="5s" hungRequestThreshold="10m">
+  </requestTiming>
+
+  <application location="pdpro.20110516.ear" />
+  <applicationManager autoExpand="true"/>
+</server>

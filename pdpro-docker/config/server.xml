@@ -10,7 +10,10 @@
   <variable name="default.https.port" defaultValue="9443"/>
 
   <httpEndpoint httpPort="${default.http.port}" httpsPort="${default.https.port}"
-      id="defaultHttpEndpoint" host="*" />
+      id="defaultHttpEndpoint" accessLoggingRef="pdprofAccessLogging" host="*" />
+
+  <httpAccessLogging id="pdprofAccessLogging"
+		logFormat='%h %u %t "%r" %s %b %{remote}p %D %{JSESSIONID}C %{Set-Cookie}o' />
 
   <eventLogging logMode="entryExit" minDuration="1ms"/>
 

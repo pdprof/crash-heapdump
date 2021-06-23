@@ -20,6 +20,12 @@
   <requestTiming slowRequestThreshold="5s" hungRequestThreshold="10m">
   </requestTiming>
 
+  <logging  traceSpecification="com.ibm.ws.webcontainer*=all:com.ibm.wsspi.webcontainer*=all:HTTPChannel=all:GenericBNF=all:HTTPDispatcher=all"
+      traceFileName="trace.log"
+      maxFileSize="20"
+      maxFiles="10"
+      traceFormat="BASIC" />
+
   <application location="pdpro.20110516.ear" />
   <applicationManager autoExpand="true"/>
 </server>

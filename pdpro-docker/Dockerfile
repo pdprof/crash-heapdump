@@ -17,9 +17,14 @@ LABEL \
   description="This image contains the system microservice running with the Open Liberty runtime."
 
 USER root
-RUN dnf install -y make
+# make is for snapit
+# porcps-ng is for vmstat, ps, top (in linperf.sh)
+# net-tools is for netstat (in inperf.sh)
+RUN dnf install -y make procps-ng net-tools
+ADD --chown=1001:0 https://www.ibm.com/support/pages/system/files/inline-files/\$FILE/linperf.sh /config/
 RUN mkdir /dump \
-    && chown 1001:0 /dump
+    && chown 1001:0 /dump && chmod 755 /config/linperf.sh
+COPY --chown=1001:0 mustgather.sh /config/
 COPY --chown=1001:0 trapit /config/
 COPY --chown=1001:0 config/server.xml /config/
 COPY --chown=1001:0 config/jvm.options /config/

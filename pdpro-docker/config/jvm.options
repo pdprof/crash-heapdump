@@ -1,2 +1,2 @@
 -Djava.library.path=/config/libs
--Xdump:directory=/tmp
+-Xdump:directory=/dump

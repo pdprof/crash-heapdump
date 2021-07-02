@@ -6,4 +6,4 @@ if [ ! -f trapit ]; then
      exit 1
 fi
 chmod 755 trapit
-docker build -t pdpro:20110516 .
+docker build -t pdpro .

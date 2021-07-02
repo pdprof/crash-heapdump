@@ -22,8 +22,8 @@ USER root
 # net-tools is for netstat (in inperf.sh)
 RUN dnf install -y make procps-ng net-tools
 ADD --chown=1001:0 https://www.ibm.com/support/pages/system/files/inline-files/\$FILE/linperf.sh /config/
-RUN mkdir /dump \
-    && chown 1001:0 /dump && chmod 755 /config/linperf.sh
+RUN mkdir -p /pdprof/dump \
+    && chown -R 1001:0 /pdprof && chmod 755 /config/linperf.sh
 COPY --chown=1001:0 mustgather.sh /config/
 COPY --chown=1001:0 trapit /config/
 COPY --chown=1001:0 config/server.xml /config/

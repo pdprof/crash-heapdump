@@ -3,6 +3,7 @@
 # prereq : oc login is required to execuete this shell
 #          trapit program and shell PATH environment variable to execute it.
 #          kubeadmin
+curl -O https://www.ibm.com/support/pages/system/files/support/swg/swgtech.nsf/0/d83af3cb5f0490d1852579d600618374/$FILE/trapit.002/trapit
 if [ ! -f trapit ]; then
      echo "===================="
      echo "Please download trapit from https://www.ibm.com/support/pages/node/709009 and put it on the same directory."

@@ -20,7 +20,8 @@ USER root
 # make is for snapit
 # porcps-ng is for vmstat, ps, top (in linperf.sh)
 # net-tools is for netstat (in inperf.sh)
-RUN dnf install -y make procps-ng net-tools
+# gdb is for gcore
+RUN dnf install -y make procps-ng net-tools gdb
 ADD --chown=1001:0 https://www.ibm.com/support/pages/system/files/inline-files/\$FILE/linperf.sh /config/
 RUN mkdir -p /pdprof/dump \
     && chown -R 1001:0 /pdprof && chmod 755 /config/linperf.sh

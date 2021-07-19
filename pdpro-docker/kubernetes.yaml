@@ -13,11 +13,24 @@ spec:
       labels:
         app: pdpro
     spec:
+      volumes:
+      - name: shared-data
+        emptyDir: {}
       containers:
       - name: pdpro-container
         image: image-registry.openshift-image-registry.svc:5000/[project-name]/pdpro:[build-date]
+        volumeMounts:
+        - name: shared-data
+          mountPath: /pdprof
         ports:
         - containerPort: 9080
+      - name: ubuntu-container
+        image: image-registry.openshift-image-registry.svc:5000/[project-name]/ubuntu:latest
+        volumeMounts:
+        - name: shared-data
+          mountPath: /pdprof
+        command: ["/bin/sh"]
+        args: ["-c", "mkdir -p /pdprof/dump; chown -R 1001:0 /pdprof/; while true; do sleep 600; done"]
       imagePullSecrets:
       - name: docker-user-secret
 --- 

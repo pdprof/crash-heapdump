@@ -30,7 +30,7 @@ spec:
         - name: shared-data
           mountPath: /pdprof
         command: ["/bin/sh"]
-        args: ["-c", "mkdir -p /pdprof/dump; chown -R 1001:0 /pdprof/; while true; do sleep 600; done"]
+        args: ["-c", "mkdir -p /pdprof/share; chown -R 1001:0 /pdprof/; while true; do sleep 600; done"]
       imagePullSecrets:
       - name: docker-user-secret
 --- 

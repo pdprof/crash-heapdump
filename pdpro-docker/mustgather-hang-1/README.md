@@ -52,7 +52,7 @@ Set sleep time and push submit button
 
 ## Check gathered logs
 
-trapit gathers logs at /pdprof/dump directory
+trapit gathers logs at /pdprof/share directory
 
 - javacore*
 

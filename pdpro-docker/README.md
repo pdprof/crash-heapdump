@@ -22,7 +22,7 @@ Now you can access http://localhost:9080/top
 
 ### Find dump
 
-See `~/pdprof/dump` after crash or out of memory error.
+See `~/pdprof/share` after crash or out of memory error.
 
 
 ## Test on OpenShift

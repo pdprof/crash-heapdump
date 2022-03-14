@@ -8,3 +8,4 @@ if [ ! -f trapit ]; then
 fi
 chmod 755 trapit
 docker build -t pdpro:20110516 .
+docker build -f Dockerfile.vnc -t vnc .

@@ -23,12 +23,13 @@ docker pull openliberty/open-liberty:kernel-java8-openj9-ubi
 docker pull docker.io/library/ubuntu
 
 docker build -t pdpro:${BUILD_DATE} .
+docker build -t vnc -f Dockerfile.vnc .
 
 docker tag pdpro:${BUILD_DATE} $(oc registry info)/$(oc project -q)/pdpro:${BUILD_DATE}
-docker tag docker.io/library/ubuntu:latest $(oc registry info)/$(oc project -q)/ubuntu:latest
+docker tag vnc:latest $(oc registry info)/$(oc project -q)/vnc:latest
 
 docker push $(oc registry info)/$(oc project -q)/pdpro:${BUILD_DATE}
-docker push $(oc registry info)/$(oc project -q)/ubuntu:latest
+docker push $(oc registry info)/$(oc project -q)/vnc:latest
 
 sed -i s/image-registry.openshift-image-registry.svc:5000/default-route-openshift-image-registry.apps-crc.testing/g kubernetes.yaml
 sed -i s/"\[project-name\]"/$(oc project -q)/g kubernetes.yaml

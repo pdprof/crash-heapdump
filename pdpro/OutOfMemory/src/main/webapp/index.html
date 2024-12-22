@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-31j">
+<title>Index of OutOfMemoryError</title>
+</head>
+<body>
+<hr>
+
+<H2>Call OutOfMemoryError Servlet - Byte Array OutOfMemoryError</H2>
+<form method="post" action="MyOutOfMemoryErrorServlet">
+Byte of 1 cluster
+<input type="text" name="size" value="10"></input><br />
+cluster's counts
+<input type="text" name="loop" value="10"></input>
+<input type="submit"><input type="reset">
+</form>
+<hr>
+
+<H2>Call OutOfMemoryError Servlet - String OutOfMemoryError</H2>
+<form method="post" action="MyStringOOMErrorServlet">
+String loop counts
+<input type="text" name="looptime" value="10"></input>
+<input type="submit"><input type="reset">
+</form>
+<hr>
+
+<H2>Call OutOfMemoryError Servlet - Byte Array Slow leak Servlet</H2>
+<form method="post" action="MySlowLeakServlet">
+Byte of 1 cluster
+<input type="text" name="size" value="10"></input><br />
+cluster's counts for dummy
+<input type="text" name="loop" value="10">(GCed after end of loop, 1 cluster is leaked after loop)</input><br />
+Sleep time between loop
+<input type="text" name="time" value="10">milliseconds</input>
+<input type="submit"><input type="reset">
+</form>
+<hr>
+
+<H2>Call Native OutOfMemoryError Servlet - Native OutOfMemoryError</H2>
+<form method="post" action="MyNativeOOMErrorServlet">
+Malloc loop counts
+<input type="text" name="looptime" value="10000"></input>
+<input type="submit"><input type="reset">
+</form>
+<hr>
+</body>
+</html>

@@ -1,0 +1,16 @@
+FROM ibmcom/websphere-traditional:latest
+ENV ENABLE_BASIC_LOGGING=true
+COPY libs/libpdpro.native.so /usr/lib64/libpdpro.native.so
+COPY was90/PASSWORD /tmp/PASSWORD
+USER root
+RUN dnf install -y make procps-ng net-tools gdb
+RUN mkdir -p /pdprof/share \
+    && chown -R 1001:0 /pdprof
+COPY --chown=was:root libs/libpdpro.native.so /usr/lib64/libpdpro.native.so
+COPY --chown=was:root was90/PASSWORD /tmp/PASSWORD
+COPY --chown=was:root apps/trapit /pdprof/trapit
+COPY --chown=was:root apps/linperf.sh /pdprof/linperf.sh
+COPY --chown=was:root apps/pdpro.ear /work/config/pdpro.ear
+COPY --chown=was:root was90/installApp.py /work/config/installApp.py
+USER 1001
+RUN /work/configure.sh

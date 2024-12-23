@@ -25,6 +25,13 @@
 		<servlet-class>
 		pdpro.hang.MyDeadlockServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>MyGCServlet</display-name>
+		<servlet-name>MyGCServlet</servlet-name>
+		<servlet-class>pdpro.hang.MyGCServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>MyLoopServlet</servlet-name>
 		<url-pattern>/MyLoopServlet</url-pattern>
@@ -36,6 +43,10 @@
 	<servlet-mapping>
 		<servlet-name>MyDeadlockServlet</servlet-name>
 		<url-pattern>/MyDeadlockServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MyGCServlet</servlet-name>
+		<url-pattern>/MyGCServlet</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>

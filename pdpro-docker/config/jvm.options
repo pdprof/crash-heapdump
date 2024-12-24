@@ -1,2 +1,4 @@
 -Djava.library.path=/config/libs
 -Xdump:directory=/pdprof/share
+-Xdump:stack:events=throw+systhrow,filter=java/lang/NumberFormatException#pdpro/exception/MyExceptionServlet.doPost#5
+-Xtrace:print=mt,methods={java/lang/System.gc},trigger=method{java/lang/System.gc,jstacktrace}

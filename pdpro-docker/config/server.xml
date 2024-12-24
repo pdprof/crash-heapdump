@@ -26,6 +26,6 @@
       maxFiles="10"
       traceFormat="BASIC" />
 
-  <application location="pdpro.20110516.ear" />
+  <application location="pdpro.ear" />
   <applicationManager autoExpand="true"/>
 </server>

@@ -4,7 +4,7 @@ if [ ! -d /pdprof/share ]; then
 fi
 
 cd /pdprof/share
-/config/linperf.sh 1
+/pdprof/linperf.sh 1
 SVCMD=`which server`
 if [ -f $SVCMD ]; then
     $SVCMD dump defaultServer --archive=/pdprof/share/defaultServer.dump.zip

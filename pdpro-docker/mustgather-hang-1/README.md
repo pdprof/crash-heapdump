@@ -11,11 +11,11 @@ Login to pod/container and start trap it to gather document at the problem time.
 
 - docker exec -it pdpro bash
 
-- /config/trapit -e TRAS0112W -f /logs/messages.log -i 2 -t /config/mustgather.sh
+- /pdprof/trapit -e TRAS0112W -f /logs/messages.log -i 2 -t /pdprof/mustgather.sh
 
 ```
 $ docker exec -it pdpro bash
-bash-4.4$ /config/trapit -e TRAS0112W -f /logs/messages.log -i 2 -t /config/mustgather.sh
+bash-4.4$ /pdprof/trapit -e TRAS0112W -f /logs/messages.log -i 2 -t /pdprof/mustgather.sh
 trapit: Match found in /logs/messages.log
 Fri Jul 2 12:13:59 UTC 2021 MustGather>> linperf.sh script starting...
 Fri Jul 2 12:13:59 UTC 2021 MustGather>> Script version:  2016.05.31.

@@ -1,11 +1,16 @@
 #!/bin/bash
-#curl -O https://www.ibm.com/support/pages/system/files/support/swg/swgtech.nsf/0/d83af3cb5f0490d1852579d600618374/$FILE/trapit.002/trapit
-#if [ ! -f trapit ]; then
-#     echo "===================="
-#     echo "Please download trapit from https://www.ibm.com/support/pages/node/709009 and put it on the same directory."
-#     echo "====================" 
-#     exit 1
-#fi
-#chmod 755 trapit
-docker build -t pdpro:20110516 .
-docker build -f Dockerfile.vnc -t vnc .
+if [ ! -f apps/trapit ]; then
+     echo "===================="
+     echo "Please download latest trapit from https://www.ibm.com/support/pages/node/709009 and put it in the apps directory."
+     echo "===================="
+     cp apps/trapit-4.2.sh apps/trapit
+fi
+
+if [ ! -f apps/linpers.sh ]; then
+     echo "===================="
+     echo "Please download latest trapit from https://www.ibm.com/support/pages/node/72419 and put it in the apps directory."
+     echo "===================="
+     cp apps/linperf.20241213.sh apps/linperf.sh
+fi
+
+docker build -t pdpro .

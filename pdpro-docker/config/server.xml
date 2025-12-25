@@ -26,6 +26,8 @@
       maxFiles="10"
       traceFormat="BASIC" />
 
+  <quickStartSecurity userName="wsadmin" userPassword="passw0rd" />
+
   <application location="pdpro.20110516.ear" />
   <applicationManager autoExpand="true"/>
 </server>

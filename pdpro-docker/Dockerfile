@@ -30,6 +30,6 @@ COPY --chown=1001:0 apps/linperf.sh /pdprof/
 COPY --chown=1001:0 apps/mustgather.sh /pdprof/
 COPY --chown=1001:0 config/server.xml /config/
 COPY --chown=1001:0 config/jvm.options /config/
-COPY --chown=1001:0 apps/pdpro.ear /config/apps/
+COPY --chown=1001:0 apps/pdpro.20110516.ear /config/apps/
 
 USER 1001
